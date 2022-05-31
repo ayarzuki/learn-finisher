@@ -1,0 +1,93 @@
+{
+  "errors": [
+    {
+      "message": "Query execution error. Link from entry '2UtgYtQyImtcmqcpj2ci9J' to asset '1dZFgKKUhpyD3DmtosBlUp' on field 'image' within type 'CollectionBanner' cannot be resolved",
+      "extensions": {
+        "contentful": {
+          "code": "UNRESOLVABLE_LINK",
+          "requestId": "0b9242ee-9862-43bf-b76f-8c0fc7b08a40",
+          "details": {
+            "type": "CollectionBanner",
+            "field": "image",
+            "linkType": "Asset",
+            "linkId": "1dZFgKKUhpyD3DmtosBlUp",
+            "linkingEntryId": "2UtgYtQyImtcmqcpj2ci9J"
+          }
+        }
+      },
+      "locations": [{ "line": 16, "column": 5 }],
+      "path": ["collectionBannerCollection", "items", 0, "image"]
+    },
+    {
+      "message": "Query execution error. Link from entry '2UtgYtQyImtcmqcpj2ci9J' to entry '5fnzEWDMmkEgZtidSnhuy6' on field 'links' within type 'CollectionBanner' cannot be resolved",
+      "extensions": {
+        "contentful": {
+          "code": "UNRESOLVABLE_LINK",
+          "requestId": "0b9242ee-9862-43bf-b76f-8c0fc7b08a40",
+          "details": {
+            "type": "CollectionBanner",
+            "field": "links",
+            "linkType": "Entry",
+            "linkId": "5fnzEWDMmkEgZtidSnhuy6",
+            "linkingEntryId": "2UtgYtQyImtcmqcpj2ci9J"
+          }
+        }
+      },
+      "locations": [{ "line": 32, "column": 7 }],
+      "path": [
+        "collectionBannerCollection",
+        "items",
+        0,
+        "linksCollection",
+        "items",
+        2
+      ]
+    }
+  ],
+  "data": {
+    "collectionBannerCollection": {
+      "items": [
+        {
+          "sys": { "id": "2UtgYtQyImtcmqcpj2ci9J" },
+          "bannerType": "corner-image",
+          "excerpt": null,
+          "tag": null,
+          "useFields": true,
+          "title": "iMacs",
+          "content": null,
+          "image": null,
+          "parentCollection": null,
+          "linksCollection": {
+            "items": [
+              {
+                "__typename": "ShopLink",
+                "sys": { "id": "6q8tO4UbdJyhmv2yXsYTqt" },
+                "title": "iMac Pro",
+                "path": "/collections/imac-pro-7143"
+              },
+              {
+                "__typename": "ShopLink",
+                "sys": { "id": "4MB3pdnQgElkjbkwK6aMau" },
+                "title": "Mac Mini",
+                "path": "/collections/mac-mini-7144"
+              },
+              null,
+              {
+                "__typename": "ShopLink",
+                "sys": { "id": "1Ct3ZiUXpZan23IQ6z3bof" },
+                "title": "Mac Computer Accessories",
+                "path": "/collections/mac-computer-accessories-7146"
+              },
+              {
+                "__typename": "ShopLink",
+                "sys": { "id": "4cX42PWoo3YV6Ry3QOb4GF" },
+                "title": "Mac Studio",
+                "path": "/collections/mac-studio-10094"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,3 +1,11 @@
 seeder:
   file: ./seeder/seeder.rb
   disabled: true
+
+parsers:
+  - file: ./parsers/main.rb
+    page_type: main
+    disabled: true
+  - file: ./parsers/sub_category.rb
+    page_type: sub_category
+    disabled: true
