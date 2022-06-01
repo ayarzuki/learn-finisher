@@ -9,3 +9,6 @@ parsers:
   - file: ./parsers/sub_category.rb
     page_type: sub_category
     disabled: true
+  - file: ./parsers/pagination.rb
+    page_type: pagination
+    disabled: true
