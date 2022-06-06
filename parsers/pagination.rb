@@ -120,6 +120,6 @@ products.each do |product|
     #     },
     # }
 
-    # outputs << item
+    outputs << item
 
 end
