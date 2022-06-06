@@ -1,14 +1,17 @@
 seeder:
   file: ./seeder/seeder.rb
-  disabled: true
+  disabled: false
 
 parsers:
   - file: ./parsers/main.rb
     page_type: main
-    disabled: true
+    disabled: false
   - file: ./parsers/sub_category.rb
     page_type: sub_category
-    disabled: true
+    disabled: false
   - file: ./parsers/pagination.rb
     page_type: pagination
+    disabled: false
+  - file: ./parsers/inventory.rb
+    page_type: inventory
     disabled: true

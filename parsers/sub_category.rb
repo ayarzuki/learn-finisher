@@ -1,8 +1,10 @@
 json = JSON.parse(content)
 
 total_pages = json["results"][0]["nbPages"] - 1
-url_api = json["results"][0]["hits"][0]["named_tags"]["bc_l3_handle"]
+# url_api = json["results"][0]["hits"][0]["named_tags"]["bc_l3_handle"]
 # p url_api
+sub_category = page["vars"]["sub_category"]
+# p sub_category
 
 input = (0..total_pages).to_a.map do |next_page|
     pages << {
@@ -23,7 +25,7 @@ input = (0..total_pages).to_a.map do |next_page|
             "Sec-Fetch-Site" => "cross-site",
             "User-Agent" => "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:100.0) Gecko/20100101 Firefox/100.0"
         },
-        body: '{"requests":[{"indexName":"shopify_products","params":"highlightPreTag=%3Cais-highlight-0000000000%3E&highlightPostTag=%3C%2Fais-highlight-0000000000%3E&getRankingInfo=true&userToken=3235131694945173&clickAnalytics=true&hitsPerPage=32&filters=tags%3A%22en_CA%22%20AND%20collections%3A%22' + url_api + '%22&ruleContexts=%5B%22logged-out%22%5D&page=' + next_page.to_s + '"}]}',
+        body: '{"requests":[{"indexName":"shopify_products","params":"highlightPreTag=%3Cais-highlight-0000000000%3E&highlightPostTag=%3C%2Fais-highlight-0000000000%3E&getRankingInfo=true&userToken=3235131694945173&clickAnalytics=true&hitsPerPage=32&filters=tags%3A%22en_CA%22%20AND%20collections%3A%22' + sub_category + '%22&ruleContexts=%5B%22logged-out%22%5D&page=' + next_page.to_s + '"}]}',
     }
 end
 
