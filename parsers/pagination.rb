@@ -12,6 +12,9 @@ products.each do |product|
     # initialize an empty hash
     item = {}
     
+    ### Extract Product Name
+    item["product_name"] = product["title"]
+
     ### Extract Brand
     item["brand"] = product["named_tags"]["brand"] rescue nil
     
@@ -76,7 +79,8 @@ products.each do |product|
     item["colour"] = colour rescue ""
 
     ### Extract Size
-    item["size"] = ""
+    parse_size = features_parse
+    # p parse_size
 
     ### Extract Warranty Info
     item["warranty_info"] = ""
@@ -116,6 +120,6 @@ products.each do |product|
     #     },
     # }
 
-    outputs << item
+    # outputs << item
 
 end
