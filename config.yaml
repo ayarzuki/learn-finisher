@@ -12,6 +12,15 @@ parsers:
   - file: ./parsers/pagination.rb
     page_type: pagination
     disabled: false
-  - file: ./parsers/inventory.rb
-    page_type: inventory
+  - file: ./parsers/delivery_tor.rb
+    page_type: delivery_tor
+    disabled: true
+  - file: ./parsers/pickup_tor.rb
+    page_type: pickup_tor
+    disabled: true
+  - file: ./parsers/delivery_van.rb
+    page_type: delivery_van
+    disabled: true
+  - file: ./parsers/pickup_van.rb
+    page_type: pickup_van
     disabled: true
