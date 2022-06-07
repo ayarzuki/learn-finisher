@@ -39,15 +39,11 @@ products.each do |product|
     category_3 = product["named_tags"]["bc_l3_name"]
     item["category"] = "Home > " + category_1 + " > " + category_2 + " > " + category_3 rescue nil
 
-    ### Extract Colour
-    item["colour"] = ""
-
     ### Extract Delivery Details
-    item["delivery_details"] = ""
 
     ### Extract Features
-    features_parse = product["meta"]["props"]["specifications"] rescue ""
-    features_parse = features_parse.gsub(/[\{}\\\"\_]/, " ").gsub(/(en\sCA\s:\s+)/, "").gsub(/(\s+\,\sfr\sCA.*)/, "").strip.gsub(/(\s\d+\s\:)/, ':') rescue ""
+    features_parse_json = product["meta"]["props"]["specifications"] rescue ""
+    features_parse = features_parse_json.gsub(/[\{}\\\"\_]/, " ").gsub(/(en\sCA\s:\s+)/, "").gsub(/(\s+\,\sfr\sCA.*)/, "").strip.gsub(/(\s\d+\s\:)/, ':') rescue ""
     features = features_parse.split(" ,").join(",")
     item["features"] = features rescue ""
 
@@ -74,19 +70,30 @@ products.each do |product|
     item["review_count"] = review_count rescue ""
 
     ### Extract Colour
-    colour_parse = features.scan(/([cC]olour.*[a-z\-]\,)/).join rescue ""
-    colour = colour_parse.gsub(/([cC]olour)(.*\:\s)([a-zA-Z\-]+)(\,)/, '\3') rescue ""
-    item["colour"] = colour rescue ""
+    colour_parse = features.scan(/([cC]olour\s)([a-zA-Z]+\:)([\sa-zA-Z]+)(\,)/).join rescue ""
+    colour = colour_parse.gsub(/([cC]olour\s)([a-zA-Z]+\:)([\sa-zA-Z]+)(\,)/, '\3') rescue ""
+    item["colour"] = colour.strip rescue ""
 
     ### Extract Size
-    parse_size = features_parse
+    parse_size1 = features_parse_json.gsub(/[\{}\\\"\_]/, " ").gsub(/(en\sCA\s:\s+)/, "").gsub(/(\s+\,\sfr\sCA.*)/, "") rescue ""
+    parse_size = parse_size1.strip.gsub(/(\s\d+\s\:)/, ':') rescue ""
+    size_parse = parse_size.scan(/([dD]imensions:)(.*\s)(\s+\,)/).join rescue ""
+    size = size_parse.gsub(/([dD]imensions:)(\s[0-9\s+x\.\']+)(\,)/, '\2') rescue ""
+    item["size"] = size rescue ""
+
     # p parse_size
 
     ### Extract Warranty Info
-    item["warranty_info"] = ""
+    warranty = features_parse_json.gsub(/[\{}\\\"\_]/, " ").gsub(/(en\sCA\s:\s+)/, "").gsub(/(\s+\,\sfr\sCA.*)/, "") rescue ""
+    warranty = warranty.strip.gsub(/(\s\d+\s\:)/, ':') rescue ""
+    warranty_info = warranty.scan(/([wW]arranty:)(\s[0-9a-zA-Z\-\(\)\,.*]+)(\s+\,)/).join rescue ""
+    item["warranty_info"] = warranty_info.gsub(/([wW]arranty:)(\s[0-9a-zA-Z\-\(\)\,.*]+)(\s+\,)/, '\2').strip rescue ""
 
     ### Extract Weight
-    item["weight"] = ""
+    weight_parse = features_parse_json.gsub(/[\{}\\\"\_]/, " ").gsub(/(en\sCA\s:\s+)/, "").gsub(/(\s+\,\sfr\sCA.*)/, "") rescue ""
+    weight_parse = weight_parse.strip.gsub(/(\s\d+\s\:)/, ':') rescue ""
+    weight = weight_parse.scan(/([wW]eight:)(\s[0-9a-zA-Z\-\(\)\,\..*]+)(\s+\,)/).join rescue ""
+    item["weight"] = weight.gsub(/([wW]eight:)(\s[0-9a-zA-Z\-\(\)\,\..*]+)(\s+\,)/, '\2').strip rescue ""
 
     ### Scrape datetime
     item["scrape_datetime"] = Time.now.strftime("%FT%R:%SZ")
