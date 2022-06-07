@@ -86,8 +86,8 @@ products.each do |product|
     ### Extract Warranty Info
     warranty = features_parse_json.gsub(/[\{}\\\"\_]/, " ").gsub(/(en\sCA\s:\s+)/, "").gsub(/(\s+\,\sfr\sCA.*)/, "") rescue ""
     warranty = warranty.strip.gsub(/(\s\d+\s\:)/, ':') rescue ""
-    warranty_info = warranty.scan(/([wW]arranty:)(\s[0-9a-zA-Z\-\(\)\,.*]+)(\s+\,)/).join rescue ""
-    item["warranty_info"] = warranty_info.gsub(/([wW]arranty:)(\s[0-9a-zA-Z\-\(\)\,.*]+)(\s+\,)/, '\2').strip rescue ""
+    warranty_info = warranty.scan(/([wW]arranty:)(\s[0-9a-zA-Z\-\(\)\,.*\s+]+)(\,)/).join rescue ""
+    item["warranty_info"] = warranty_info.gsub(/([wW]arranty:)(\s[0-9a-zA-Z\-\(\)\,.*\s+]+)(\,)/, '\2').strip rescue ""
 
     ### Extract Weight
     weight_parse = features_parse_json.gsub(/[\{}\\\"\_]/, " ").gsub(/(en\sCA\s:\s+)/, "").gsub(/(\s+\,\sfr\sCA.*)/, "") rescue ""
