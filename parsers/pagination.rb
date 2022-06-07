@@ -47,7 +47,7 @@ products.each do |product|
 
     ### Extract Features
     features_parse = product["meta"]["props"]["specifications"] rescue ""
-    features_parse = features_parse.gsub(/[\{}\\\"\_]/, " ").gsub(/(en\sCA\s:\s+)/, "").gsub(/(\s+\,\sfr\sCA.*)/, "").strip.gsub(/(\s\d+\s)/, '') rescue ""
+    features_parse = features_parse.gsub(/[\{}\\\"\_]/, " ").gsub(/(en\sCA\s:\s+)/, "").gsub(/(\s+\,\sfr\sCA.*)/, "").strip.gsub(/(\s\d+\s\:)/, ':') rescue ""
     features = features_parse.split(" ,").join(",")
     item["features"] = features rescue ""
 
