@@ -58,7 +58,7 @@ products.each do |product|
     # instock_online = product["in_stock"]
     
     ### Extract Model Number
-    model_number = product["_highlightResult"]["named_tags"]["model_num"]["value"]
+    model_number = product["_highlightResult"]["named_tags"]["model_num"]["value"] rescue ""
     item["model_number"] = model_number rescue ""
 
     ### Extract Product Rating
