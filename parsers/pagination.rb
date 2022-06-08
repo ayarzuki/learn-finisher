@@ -123,23 +123,23 @@ products.each do |product|
         }
     }
 
-    pages << {
-        url: "https://inventory-api-staples-amigos.boldapps.net/v1/inventory/request",
-        method: "POST",
-        page_type: "delivery_van",
-        headers: {
-            "Accept" => "application/json, text/plain, */*",
-            "Accept-Encoding" => "gzip, deflate, br",
-            "Accept-Language" => "en-US,en;q=0.5",
-            "Connection" => "keep-alive",
-            "Content-Type" => "application/json",
-            "User-Agent" => "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:100.0) Gecko/20100101 Firefox/100.0"
-        },
-        body: '{"locale":"en-CA","postal_code":"V6E 3P3","items":[{"sku":"' + sku.to_s + '","quantity":1000}],"location":"V6E 3P3"}',
-        vars: {
-            identifier_sku: sku,
-        }
-    }
+    # pages << {
+    #     url: "https://inventory-api-staples-amigos.boldapps.net/v1/inventory/request",
+    #     method: "POST",
+    #     page_type: "delivery_van",
+    #     headers: {
+    #         "Accept" => "application/json, text/plain, */*",
+    #         "Accept-Encoding" => "gzip, deflate, br",
+    #         "Accept-Language" => "en-US,en;q=0.5",
+    #         "Connection" => "keep-alive",
+    #         "Content-Type" => "application/json",
+    #         "User-Agent" => "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:100.0) Gecko/20100101 Firefox/100.0"
+    #     },
+    #     body: '{"locale":"en-CA","postal_code":"V6E 3P3","items":[{"sku":"' + sku.to_s + '","quantity":1000}],"location":"V6E 3P3"}',
+    #     vars: {
+    #         identifier_sku: sku,
+    #     }
+    # }
 
     outputs << item
 

@@ -20,7 +20,7 @@ parsers:
     disabled: false
   - file: ./parsers/delivery_van.rb
     page_type: delivery_van
-    disabled: false
+    disabled: true
   - file: ./parsers/pickup_van.rb
     page_type: pickup_van
-    disabled: false
+    disabled: true
