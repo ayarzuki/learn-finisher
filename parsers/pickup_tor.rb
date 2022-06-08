@@ -1,5 +1,8 @@
 json = JSON.parse(content)
 
+# initialize an empty hash for item
+item = {}
+
 identifier_sku = page["vars"]["identifier_sku"]
 delivery_details = page["vars"]["delivery_details"]
 in_stock_online = page["vars"]["in_stock_online"]
