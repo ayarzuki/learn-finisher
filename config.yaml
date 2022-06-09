@@ -8,22 +8,22 @@ parsers:
     disabled: false
   - file: ./parsers/sub_category.rb
     page_type: sub_category
-    disabled: true
+    disabled: false
   - file: ./parsers/pagination.rb
     page_type: pagination
-    disabled: true
+    disabled: false
   - file: ./parsers/delivery_tor.rb
     page_type: delivery_tor
-    disabled: true
+    disabled: false
   - file: ./parsers/pickup_tor.rb
     page_type: pickup_tor
-    disabled: true
+    disabled: false
   - file: ./parsers/delivery_van.rb
     page_type: delivery_van
-    disabled: true
+    disabled: false
   - file: ./parsers/pickup_van.rb
     page_type: pickup_van
-    disabled: true
+    disabled: false
 
 exporters:
   - file: ./exporters/items_csv.yaml
