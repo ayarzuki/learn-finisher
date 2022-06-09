@@ -24,3 +24,7 @@ parsers:
   - file: ./parsers/pickup_van.rb
     page_type: pickup_van
     disabled: true
+
+exporters:
+  - file: ./exporters/items_csv.yaml
+    disabled: false
