@@ -187,4 +187,38 @@ products.each do |product|
         }
     }
 
+    pages << {
+        url: "https://inventory-api-staples-amigos.boldapps.net/v1/inventory/request",
+        method: "POST",
+        page_type: "delivery_van",
+        headers: {
+            "Accept" => "application/json, text/plain, */*",
+            "Accept-Encoding" => "gzip, deflate, br",
+            "Accept-Language" => "en-US,en;q=0.5",
+            "Connection" => "keep-alive",
+            "Content-Type" => "application/json",
+            "User-Agent" => "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:100.0) Gecko/20100101 Firefox/100.0"
+        },
+        body: '{"locale":"en-CA","postal_code":"V6E 3P3","items":[{"sku":"' + sku.to_s + '","quantity":1000}],"location":"V6E 3P3"}',
+        vars: {
+            identifier_sku: identifier_sku,
+            brand: brand,
+            category: category,
+            colour: colour,
+            description: description,
+            features: features,
+            model_number: model_number,
+            price_now: price_now,
+            price_was: price_was,
+            product_name: product_name,
+            product_rating: product_rating,
+            review_count: review_count,
+            scrape_datetime: scrape_datetime,
+            size: size,
+            url: url,
+            warranty_info: warranty_info,
+            weight: weight
+        }
+    }
+
 end

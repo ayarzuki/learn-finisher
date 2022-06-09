@@ -67,7 +67,14 @@ item["url"] = url
 item["warranty_info"] = warranty_info
 item["weight"] = weight
 
-outputs << item
+# outputs << item
+
+pages << {
+    page_type: "pickup_van",
+    vars: {
+        item: item
+    }
+}
 
 # outputs << {
 #     _collection: "stock_tor",
