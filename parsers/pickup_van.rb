@@ -1,8 +1,5 @@
 json = JSON.parse(content)
 
-### Just try
-toronto = page["vars"]["item"]
-
 ### Temporary initialize an empty hash for item
 item = {}
 item["_collection"] = "items"
@@ -70,7 +67,7 @@ item["url"] = url
 item["warranty_info"] = warranty_info
 item["weight"] = weight
 
-outputs << item.merge(toronto)
+outputs << item
 
 # outputs << {
 #     _collection: "stock_van",

@@ -65,7 +65,7 @@ pages << {
         "Content-Type" => "application/json",
         "User-Agent" => "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:100.0) Gecko/20100101 Firefox/100.0"
     },
-    body: '"locale":"en-CA","store_number":"254","postal_code":"V6E 3P3","items":[{"sku":"' + identifier_sku.to_s + '","quantity":1000}],"location":"PickInStore"}',
+    body: '{"locale":"en-CA","store_number":"254","postal_code":"V6E 3P3","items":[{"sku":"' + identifier_sku.to_s + '","quantity":1000}],"location":"PickInStore"}',
     vars: {
         identifier_sku: identifier_sku,
         delivery_details: delivery_details,
