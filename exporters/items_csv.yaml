@@ -2,7 +2,7 @@ exporter_name: items_csv
 exporter_type: csv
 collection: items
 start_on_job_done: true
-order: desc
+offset: 0
 fields:
   - header: "brand"
     path: "brand"
